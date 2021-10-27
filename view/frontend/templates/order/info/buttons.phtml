@@ -1,0 +1,35 @@
+<?php
+
+declare(strict_types=1);
+
+/** @var \Magento\Sales\Block\Order\History $block */
+/** @var \Magento\Framework\Escaper $escaper */
+?>
+<div class="actions">
+    <?php $_order = $block->getOrder() ?>
+    <?php if ($this->helper(\Magento\Sales\Helper\Reorder::class)->canReorder($_order->getEntityId())) : ?>
+        <a href="#" data-post='<?=
+        /* @noEscape */
+        $this->helper(\Magento\Framework\Data\Helper\PostHelper::class)
+            ->getPostData($block->getReorderUrl($_order))
+        ?>' class="action order">
+            <span><?= $escaper->escapeHtml(__('Reorder')) ?></span>
+        </a>
+    <?php endif ?>
+    <?php if ($this->helper(Maxpay\Payment\Gateway\Helper\PayHelper::class)->canPayOnline($_order->getEntityId())) : ?>
+        <a href="<?=
+        /* @noEscape */
+        $this->helper(Maxpay\Payment\Gateway\Helper\PayHelper::class)
+            ->getRedirectUrl($_order->getEntityId())
+        ?>">
+            <span><?= $escaper->escapeHtml(__('Pay Online')) ?></span>
+        </a>
+    <?php endif ?>
+    <a href="<?= $escaper->escapeUrl($block->getPrintUrl($_order)) ?>"
+       class="action print"
+       target="_blank"
+       rel="noopener">
+        <span><?= $escaper->escapeHtml(__('Print Order')) ?></span>
+    </a>
+    <?= $block->getChildHtml() ?>
+</div>

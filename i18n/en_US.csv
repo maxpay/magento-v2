@@ -1,0 +1,39 @@
+"Enabled","Enabled"
+"Label","Label"
+"Title","Title"
+"Test Public Key","Test Public Key"
+"Test Private Key","Test Private Key"
+"Live Public Key","Live Public Key"
+"Private Key","Private Key"
+"Sandbox Mode","Sandbox Mode"
+"New Order Status","New Order Status"
+"Debug Mode","Debug Mode"
+"Sort Order","Sort Order"
+'Can\'t find order.','Can\'t find order.'
+'Maxpay Payment','Maxpay Payment'
+'Transaction has been declined. Please try again later.','Transaction has been declined. Please try again later.'
+'Payment data object should be provided','Payment data object should be provided'
+'Response does not exist','Response does not exist'
+'The "uniqueUserId" field does not exists','The "uniqueUserId" field does not exists'
+'The "transactionId" field does not exists','The "transactionId" field does not exists'
+'The "amount" field does not exists','The "amount" field does not exists'
+'The "currency" field does not exists','The "currency" field does not exists'
+'The "card_expiration_month" field does not exists','The "card_expiration_month" field does not exists'
+'The "card_expiration_year" field does not exists','The "card_expiration_year" field does not exists'
+'The "card_brand" field does not exists','The "card_brand" field does not exists'
+'The "card_last4" field does not exists','The "card_last4" field does not exists'
+'Sorry, something went wrong while processing your payment. Please, contact to our manager','Sorry, something went wrong while processing your payment. Please, contact to our manager'
+'Wrong order status','Wrong order status'
+'Wrong refund result','Wrong refund result'
+'Wrong transaction checkSum','Wrong transaction checkSum'
+'The "status" field does not exists','The "status" field does not exists'
+'Order was already paid','Order was already paid'
+'Wrong order currency','Wrong order currency'
+'Wrong order amount','Wrong order amount'
+'Something went wrong while payment iframe initiation.','Something went wrong while payment iframe initiation.'
+'Order does not exist','Order does not exist'
+'processing by Maxpay','processing by Maxpay'
+'The "message" field does not exists','The "message" field does not exists'
+'OrderId does not exist.','OrderId does not exist.'
+'Order Payment does not exist.','Order Payment does not exist.'
+'Billing Address does not exist.','Billing Address does not exist.'

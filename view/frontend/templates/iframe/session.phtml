@@ -1,0 +1,12 @@
+<?php
+
+declare(strict_types=1);
+
+/**
+ * @var $viewModel Maxpay\Payment\ViewModel\SessionIframe
+ */
+
+$viewModel = $block->getData('view_model');
+/* @noEscape */
+echo($viewModel->buildIframe());
+

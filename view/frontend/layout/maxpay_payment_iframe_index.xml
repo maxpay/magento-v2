@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/layout_generic.xsd">
+    <head>
+        <css src="Maxpay_Payment::css/iframe.css"/>
+    </head>
+    <container name="root">
+        <block name="maxpay.iframe.viewmodel" template="Maxpay_Payment::iframe/session.phtml" cacheable="false">
+            <arguments>
+                <argument name="view_model" xsi:type="object">Maxpay\Payment\ViewModel\SessionIframe</argument>
+            </arguments>
+        </block>
+    </container>
+</page>

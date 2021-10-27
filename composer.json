@@ -1,0 +1,22 @@
+{
+    "name": "maxpay/payment",
+    "type": "magento2-module",
+    "description": "Module for Maxpay payment gateway",
+    "authors": [],
+    "autoload": {
+        "psr-4": {
+            "Maxpay\\Payment\\": "/"
+        },
+        "files": [
+            "registration.php"
+        ]
+    },
+    "require": {
+        "php": "~7.4",
+        "maxpay/hpp-client": "^2.0",
+        "magento/module-payment": "100.4.*",
+        "magento/module-checkout": "100.4.*",
+        "magento/module-sales": "100.3.*",
+        "magento/module-vault": "100.1.*"
+    }
+}

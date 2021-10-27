@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="maxpay_tokens" resource="default" engine="innodb" comment="Maxpay Tokens">
+        <column xsi:type="int" name="id" unsigned="true" nullable="false" identity="true"
+                comment="ID"/>
+        <column xsi:type="varchar" name="customer_token" nullable="false" length="255" comment="Customer Token"/>
+        <column xsi:type="int" name="order_id" unsigned="true" nullable="false" identity="false"
+                default="0" comment="Order ID"/>
+        <column xsi:type="int" name="customer_id" unsigned="true" nullable="true" identity="false"
+                default="0" comment="Customer ID"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Created At"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="MAXPAY_TOKENS_ORDER_ID_SALES_ORDER_ENTITY_ID"
+                    table="maxpay_tokens" column="order_id" referenceTable="sales_order"
+                    referenceColumn="entity_id" onDelete="CASCADE"/>
+        <constraint xsi:type="foreign" referenceId="MAXPAY_TOKENS_CUSTOMER_ID_CUSTOMER_ENTITY_ENTITY_ID"
+                    table="maxpay_tokens" column="customer_id" referenceTable="customer_entity"
+                    referenceColumn="entity_id" onDelete="CASCADE"/>
+        <constraint xsi:type="unique" referenceId="MAXPAY_TOKENS_CUSTOMER_TOKEN">
+            <column name="customer_token"/>
+        </constraint>
+    </table>
+</schema>

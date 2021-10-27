@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <payment>
+            <maxpay>
+                <active>0</active>
+                <title>Maxpay Payment</title>
+                <model>Maxpay\Payment\Model\MaxpayAdapter</model>
+                <iframe_height>100%</iframe_height>
+                <iframe_width>auto</iframe_width>
+                <order_status>pending</order_status>
+                <can_refund>1</can_refund>
+                <can_authorize>0</can_authorize>
+                <can_capture>0</can_capture>
+                <can_refund_partial_per_invoice>1</can_refund_partial_per_invoice>
+                <can_use_checkout>1</can_use_checkout>
+                <can_use_internal>0</can_use_internal>
+                <can_authorize_vault>1</can_authorize_vault>
+                <can_capture_vault>1</can_capture_vault>
+                <default_card_type>'OT'</default_card_type>
+                <group>maxpay</group>
+                <test_public_key backend_model="Magento\Config\Model\Config\Backend\Encrypted"/>
+                <test_private_key backend_model="Magento\Config\Model\Config\Backend\Encrypted"/>
+                <is_gateway>1</is_gateway>
+                <cctypes_maxpay_mapper>
+                    <![CDATA[{"AMERICAN EXPRESS":"AE","DISCOVER":"DI","JCB":"JCB","MASTERCARD":"MC","VISA":"VI","MAESTRO":"MI","DINERS CLUB":"DN","ELOCARD":"ELO"}]]>
+                </cctypes_maxpay_mapper>
+                <token_lifetime>86400</token_lifetime>
+            </maxpay>
+            <maxpay_cc_vault>
+                <model>Maxpay\Payment\Model\MaxpayCreditCardVault</model>
+                <title>Stored Cards (Maxpay)</title>
+                <group>maxpay</group>
+            </maxpay_cc_vault>
+        </payment>
+        <csp>
+            <policies>
+                <storefront>
+                    <frame-ancestors>
+                        <policy_id>frame-ancestors</policy_id>
+                        <self>1</self>
+                        <inline>0</inline>
+                        <eval>0</eval>
+                        <dynamic>0</dynamic>
+                    </frame-ancestors>
+                </storefront>
+            </policies>
+        </csp>
+    </default>
+</config>

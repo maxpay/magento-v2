@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Maxpay\Payment\Api\Data\TokenInterface" type="Maxpay\Payment\Model\Token"/>
+    <preference for="Maxpay\Payment\Api\TokenRepositoryInterface" type="Maxpay\Payment\Model\TokenRepository"/>
+    <preference for="Maxpay\Payment\Api\Data\TokenSearchResultsInterface" type="Maxpay\Payment\Model\TokenSearchResults" />
+    <type name="Magento\Checkout\Model\CompositeConfigProvider">
+        <arguments>
+            <argument name="configProviders" xsi:type="array">
+                <item name="maxpay" xsi:type="object">Maxpay\Payment\Model\Checkout\MaxpayConfigProvider
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Maxpay\Payment\Controller\Iframe\Callback">
+        <arguments>
+            <argument name="commandPool" xsi:type="object">Maxpay\Payment\Gateway\Command\CommandPool</argument>
+            <argument name="logger" xsi:type="object">Maxpay\Payment\Model\Logger\Logger</argument>
+        </arguments>
+    </type>
+    <type name="Magento\Vault\Model\Ui\TokensConfigProvider">
+        <arguments>
+            <argument name="tokenUiComponentProviders" xsi:type="array">
+                <item name="maxpay" xsi:type="object">Maxpay\Payment\Model\Ui\TokenUiComponentProvider</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Maxpay\Payment\ViewModel\AbstractIframe">
+        <arguments>
+            <argument name="logger" xsi:type="object">Maxpay\Payment\Model\Logger\Logger</argument>
+        </arguments>
+    </type>
+    <type name="Maxpay\Payment\Controller\Pay\Online">
+        <arguments>
+            <argument name="logger" xsi:type="object">Maxpay\Payment\Model\Logger\Logger</argument>
+        </arguments>
+    </type>
+    <type name="Maxpay\Payment\Gateway\Helper\PayHelper">
+        <arguments>
+            <argument name="logger" xsi:type="object">Maxpay\Payment\Model\Logger\Logger</argument>
+        </arguments>
+    </type>
+    <type name="Maxpay\Payment\ViewModel\SessionIframe">
+        <arguments>
+            <argument name="checkoutSession" xsi:type="object">Magento\Checkout\Model\Session\Proxy</argument>
+        </arguments>
+    </type>
+    <type name="Maxpay\Payment\Controller\Iframe\Index">
+        <arguments>
+            <argument name="checkoutSession" xsi:type="object">Magento\Checkout\Model\Session\Proxy</argument>
+        </arguments>
+    </type>
+</config>
